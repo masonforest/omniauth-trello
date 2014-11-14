@@ -35,7 +35,8 @@ module OmniAuth
       def request_phase
         options[:authorize_params] = {
           :name => options['app_name'],
-          :scope => options['scope'] || 'read'
+          :scope => options['scope'] || 'read',
+          :callback_url => options['callback_url'] || callback_url
         }
         options[:authorize_params].merge!(:expiration => options['expiration']) if options['expiration']
         super
